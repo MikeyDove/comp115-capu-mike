@@ -146,10 +146,15 @@ Uncomment the unit tests below to verify your function implementation.
 
 # Function implementation 
 def add_number(nums, k):
-    return [num + k for num in nums]
+    total = []
+    for num in nums:
+        new_value = num + k
+        total.append(new_value)
+
+    return total
 
 assert add_number([2, 4, 1], 5) == [7, 9, 6]
-# assert add_number([7, 8], -5) == [2, 3]
+assert add_number([7, 8], -5) == [2, 3]
 
 
 """
@@ -167,13 +172,16 @@ Uncomment the unit tests below to verify your function implementation.
 
 # Function implementation
 def squares(nums):
-    pass
-
-
-# assert squares([2, 3, 4]) == [4, 9, 16]
-# assert squares([2, 4]) == [4, 16]
-# assert squares([5, 6, 7]) == [25, 36, 49]
-# assert squares([]) == []
+    total = []
+    for num in nums:
+        new_val = num**2 
+        total.append(new_val)
+    return total
+print(squares([2, 3, 4]))
+assert squares([2, 3, 4]) == [4, 9, 16]
+assert squares([2, 4]) == [4, 16]
+assert squares([5, 6, 7]) == [25, 36, 49]
+assert squares([]) == []
 
 
 """
@@ -191,12 +199,18 @@ Uncomment the unit tests below to verify your function implementation.
 
 # Function implementation 
 def repeat_elements(nums):
-    pass
+    total = []
+    for num in nums:
+        total.append(num)
+        total.append(num)
+    return total 
+   
 
 
-# assert repeat_elements([1, 2, 3, 4]) == [1, 1, 2, 2, 3, 3, 4, 4]
-# assert repeat_elements([2, 7, 8]) == [2, 2, 7, 7, 8, 8]
-# assert squares([]) == []
+
+assert repeat_elements([1, 2, 3, 4]) == [1, 1, 2, 2, 3, 3, 4, 4]
+assert repeat_elements([2, 7, 8]) == [2, 2, 7, 7, 8, 8]
+assert squares([]) == []
 
 
 
