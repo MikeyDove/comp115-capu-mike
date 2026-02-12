@@ -185,11 +185,11 @@ is True if num does not exist in the list nums.
 """
 
 def remove_duplicates(nums):
-    multiculturalism =[]
+    no_doops =[]
     for num in nums:
-        if num not in multiculturalism:
-            multiculturalism.append(num)
-    return multiculturalism
+        if num not in no_doops:
+            no_doops.append(num)
+    return no_doops
 
 assert remove_duplicates([1, 3, 3, 4]) == [1, 3, 4]
 assert remove_duplicates([1, 1, 3, 4, 3]) == [1, 3, 4]
@@ -236,4 +236,5 @@ def my_fib(n):
 Congratulations on finishing your lab6!
 Now upload to your GitHub repository, and paste your GitHub link on e-learn.
 Have a great reading break!
+
 """
