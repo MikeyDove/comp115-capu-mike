@@ -8,20 +8,20 @@ m.speed(3)
 turtle.bgcolor("chocolate")
 
 
-# chords = [(210, 102), (-34,-52), (-282, -206), (117,-312), (456, 257), (361, -158) ]
-# for x,y in chords:
-#     m.penup()
-#     m.goto(x,y)
-#     m.pendown()
-#     m.setheading(300)
-#     m.fillcolor("saddlebrown")
-#     m.begin_fill()
-#     m.forward(300)
-#     m.right(135)
-#     m.forward(410)
-#     m.right(133)
-#     m.forward(290)
-#     m.end_fill()
+chords = [(210, 102), (-34,-52), (-282, -206), (117,-312), (456, 257), (361, -158) ]
+for x,y in chords:
+    m.penup()
+    m.goto(x,y)
+    m.pendown()
+    m.setheading(300)
+    m.fillcolor("saddlebrown")
+    m.begin_fill()
+    m.forward(300)
+    m.right(135)
+    m.forward(410)
+    m.right(133)
+    m.forward(290)
+    m.end_fill()
 
 
 
@@ -64,7 +64,7 @@ def manhattan(x,y, count):
     if count == 0:
         m.fillcolor("maroon")
     if count != 0:
-        m.fillcolor("#E3FFD9")
+        m.fillcolor("#D4FAC8")
     m.begin_fill()
     m.right(90)
     for i in range(130):
@@ -107,12 +107,12 @@ def manhattan(x,y, count):
         m.fillcolor("orange")
         m.begin_fill()
         m.forward(85)
-        m.left(40)
+        m.left(48)
         m.forward(45)
         m.left(140)
-        m.forward(90)
+        m.forward(70)
         m.left(20)
-        m.forward(40)
+        m.forward(30)
         m.end_fill()
     if count != 0:
         m.fillcolor("#4CBB17")
@@ -134,7 +134,7 @@ for i in range(2):
 
 
     manhattan(-160 + secondmanhattanx, -240 + secondmanhattany, i)
-
+ #plant
 m.penup()
 m.goto (-250,260)
 k = -250
@@ -177,10 +177,50 @@ m.forward(30)
 m.right(45)
 m.forward(40)
 m.end_fill()
-
+ #windows
 m.penup()
-m.goto(-50,270)
-m.pendown()
+m.goto(-210,320)
+m.setheading(0)
+for i in range (3):
+       m.pendown()
+       m.pensize(4)
+       m.pencolor("midnightblue")
+       for _ in range(2):
+            m.forward(70)
+            m.right(90)
+            m.forward(60)
+            m.right(90)
+            
+        
+       m.pensize(2)
+       m.pencolor("darkgreen")
+       m.penup()
+       m.forward(35)
+       m.right(90)
+       m.pendown()
+       m.forward (60)
+       m.left(90)
+       m.penup()
+       m.forward(35)
+       m.left(90)
+       m.forward(30)
+       m.left(90)
+       m.pendown()
+       m.forward(70)
+       m.right(90)
+       m.penup()
+       m.forward(30)
+
+
+       m.setheading(0)
+       m.forward(250)
+
+       
+
+
+
+
+
 
 
 
