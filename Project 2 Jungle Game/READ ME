@@ -1,5 +1,7 @@
 Jungle Invasion with Pygame
 
+To view a screenshot of the game and highlight the code more, checkout my google docs pdf - https://docs.google.com/document/d/1DJfDiJGshZd2-0p-9a5qFveIWQ41upzNQvg21SqbNhU/edit?tab=t.0
+
 This project is inspired by Eric Matthes’s book, “Shooting Aliens game” from his Python Crash Course 3rd edition. And though initially aimed to curate something similar through a “Tarzan” lens, was overhauled as more of a top-down defense game, where your “hero” a frog wielding a pitchfork would defend his swamp from attacking knife hurling goblins. 
 
 This project demonstrates game building concepts in Pygame Graphics, such as 
