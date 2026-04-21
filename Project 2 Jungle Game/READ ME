@@ -1,0 +1,80 @@
+Jungle Invasion with Pygame
+
+This project is inspired by Eric Matthes’s book, “Shooting Aliens game” from his Python Crash Course 3rd edition. And though initially aimed to curate something similar through a “Tarzan” lens, was overhauled as more of a top-down defense game, where your “hero” a frog wielding a pitchfork would defend his swamp from attacking knife hurling goblins. 
+
+This project demonstrates game building concepts in Pygame Graphics, such as 
+
+Use of pygame in creating and importing different class and sprite types
+Appearance of user / key controlled player class. 
+Appearance of pygame controlled “enemy” class programs to roam randomly until coming into range of player; at which point to follow and hurdle knifes that direction. 
+Utilization of animation frames, essentially giving both character and enemy classes a sense of “life” in movement. 
+Utilization of hitboxes, player attacking animation can overlap with class enemy hitboxes, thus eliminating the enemy. 
+Creation of map barriers to prevent classes from intersecting and travelling off visible map. 
+
+
+— — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — 
+Code Overview
+Project is structured around central code file which controls the main game, delegating individual settings to separate files. This main file “Jungle Invasion”  essentially takes the role of worldbuilding, with two overarching categories.
+
+def __init__ (self):
+
+This acts as our initializer. In simple terms, certain things, such as the linking to the player / enemy / settings classes, only have to happen once. This sets the seen, giving constants python only has to create once. 
+
+def _create_enemies(self):
+       	for _ in range (20):
+         	  new_enemy = Enemy(self)
+          	 self.enemies.add(new_enemy)
+
+This line of code is one of my favourites, as the enemy sprite had previously been sorted into a group, this allows Python to reach into that separate file class and take out as many “enemies” as specified by range. 20 goblins is the result, with everyone capable of distinct movement thanks to the “random” and “detection range” presents in the enemy class. 
+
+
+import pygame
+
+
+class Settings:
+   def __init__(self):
+       self.screen_width = 1000
+       self.screen_height = 600
+       self.bg_image = pygame.image.load('swamp_background.bmp')
+       self.bg_image = pygame.transform.scale(self.bg_image,
+                       (self.screen_width, self.screen_height))
+
+
+It is in the initializer stage it also calls to a small “settings” class. These are sorted into a different class for ease of understanding, and solely control the background, for easy adjusting. Here i’ve linked a photo “swamp_background.bmp” I created myself in an effort to add characteristics to the environment. 
+
+   def run_game(self):
+
+The second category in our Jungle Invasion class is our run_game line. This takes the role of reminding the computer to constantly reassess and run certain could should a condition become true.
+
+
+def _check_events(self):
+
+
+Part of the run_game functions job is the introduction of _check_events, which allows for movement. The idea here is by constantly checking the status of certain keys, (such as spacebar or the arrowkeys, the function can set certain movement / attack commands to true. Conversely, should the keyup check succeed, that movement command will halt, though it will ensure the player’s sprite appears looking in that direction. 
+
+This pivots well into a final class I will mention, our Player class. 
+
+
+class Player:
+ def __init__(self, ai_game):
+      self.facing = 'front'
+      self.screen = ai_game.screen
+      self.screen_rect = ai_game.screen.get_rect()
+      self.attacking = False
+      self.attack_timer = 0
+      self.moving_right = self.moving_left = self.moving_up = self.moving_down = False
+
+By creating a starting point, we are giving Python an understanding of how to process our character. As we start the game not attacking , nor looking in any direction, we manually set the self.facing to ‘front’ and self attacking to “False”. We mainly use the self.facing variable as a basis for generating images, where it will call to the frog facing left if self.facing_left = true, face down when self.facing_down = true, and vice versa. If multiple are true it will currently keep the image of the last facing direction. Once we hit the spacebar, self attacking is set to “True” and our movement halts until the attack animation is done. Python at this point will check for overlap with the enemy, ie, Goblin, “rect” or hitboxes. If there is an intersection, the goblin will disappear and trigger a “You’ve gotten one” text on the terminal. By setting an attack timer, we prevent a “spamming” of attacks and overlapping of multiple attack animations. The rule is, the Player must wait for the current attack timer to end in order to initiate an attack again.
+ 
+
+— — — — — — — — — — — — — — — — — — — — — — — — — — — — —
+How to Run
+
+Download and clone this repository
+
+Store all values in folder on Desktop
+
+Run cd “Jungle Game” followed by python3 jungle_invasion.py
+on Terminal
+
+A window will open displaying the background, your character and 20 goblins.
